@@ -8,7 +8,8 @@ public record EmployeeResponseDTO(
         String empAge,
         String empContactNumber,
         String empEmailId,
-        String address
+        String address,
+        boolean active
 
 ) {
 }

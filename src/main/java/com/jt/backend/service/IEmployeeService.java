@@ -54,9 +54,11 @@ public interface IEmployeeService {
 
     List<Employee> getByEmpAgeIn(List<String> empAge);
 
-    List<Employee> findByActiveTrue();
+    List<Employee> getByActiveTrue();
 
-    List<Employee> findByActiveFalse();
+    List<Employee> getByActiveFalse();
+
+    List<Employee> getByEmpFirstNameIgnoreCase(String empFirstName);
 
 
 

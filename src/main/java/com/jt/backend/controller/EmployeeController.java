@@ -47,7 +47,7 @@ public class EmployeeController {
 
     /*
      *Param empFirstName,empLastName
-     *This method is used to get Unquie Employee Details search by empFirstName and empLastName
+     *This method is used to get Unique Employee Details search by empFirstName and empLastName
      */
     @GetMapping("/getDistinctEmployee/{empFirstName}/{empLastName}")
     public EmployeeResponseDTO getDistinctEmployee(@PathVariable String empFirstName,@PathVariable String empLastName){
@@ -231,6 +231,45 @@ public class EmployeeController {
     @GetMapping("/getEmpByEmpAgeOderByFirstName/{empAge}")
     public List<EmployeeResponseDTO> getEmpByEmpAgeOderByFirstName(String empAge){
         var result = employeeService.getByEmpAgeOrderByEmpLastNameDesc(empAge);
+        return result.stream().map(EmployeeMapper::dtoMapper).toList();
+    }
+
+    /*
+     *Param empLastName
+     *This method is used to get List of Employees search by EmpLastName those are not available
+     */
+    @GetMapping("/getEmpByEmpLastNameNot/{empLastName}")
+    public List<EmployeeResponseDTO> getEmpByEmpLastNameNot(String empLastName){
+        var result = employeeService.getByEmpLastNameNot(empLastName);
+        return result.stream().map(EmployeeMapper::dtoMapper).toList();
+    }
+
+    /*
+     *This method is used to get List of Active Employees
+     */
+    @GetMapping("/getByActiveEmp")
+    public List<EmployeeResponseDTO> getByActiveEmp(){
+        var result = employeeService.getByActiveTrue();
+        return result.stream().map(EmployeeMapper::dtoMapper).toList();
+    }
+
+    /*
+     *Param empLastName
+     *This method is used to get List of In-Active Employees
+     */
+    @GetMapping("/getByInActiveEmp")
+    public List<EmployeeResponseDTO> getByInactiveActiveEmp(){
+        var result = employeeService.getByActiveFalse();
+        return result.stream().map(EmployeeMapper::dtoMapper).toList();
+    }
+
+    /*
+     * @param getEmpStartnameIgnoreCase
+     *This method is used to get Emp list where firstName();
+     */
+    @GetMapping("/getEmpStartnameIgnoreCase/{empFirstName}")
+    public List<EmployeeResponseDTO> getEmpStartNameIgnoreCase(String empFirstName){
+        var result = employeeService.getByEmpFirstNameIgnoreCase(empFirstName);
         return result.stream().map(EmployeeMapper::dtoMapper).toList();
     }
 

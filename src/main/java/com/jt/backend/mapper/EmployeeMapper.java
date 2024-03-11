@@ -31,6 +31,7 @@ public class EmployeeMapper {
         var empContactNumber = employee.getEmpContactNumber();
         var empEmailId = employee.getEmpEmailId();
         var address = employee.getAddress();
+        var active = employee.isActive();
 
         return new EmployeeResponseDTO(
                 empFirstName,
@@ -38,7 +39,8 @@ public class EmployeeMapper {
                 empAge,
                 empContactNumber,
                 empEmailId,
-                address
+                address,
+                active
         );
     }
 }

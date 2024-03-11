@@ -14,6 +14,8 @@ public record EmployeeRequestDTO(
         @NotNull
         String empEmailId,
         @NotNull
-        String address
+        String address,
+        @NotNull
+        boolean active
 ) {
 }

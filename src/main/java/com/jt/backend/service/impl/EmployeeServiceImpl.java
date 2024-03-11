@@ -120,21 +120,26 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public List<Employee> getByEmpLastNameNot(String inputString) {
-        return null;
+        return employeeRepository.findByEmpLastNameNot(inputString);
     }
 
     @Override
     public List<Employee> getByEmpAgeIn(List<String> empAge) {
-        return null;
+        return employeeRepository.findByEmpAgeIn(empAge);
     }
 
     @Override
-    public List<Employee> findByActiveTrue() {
-        return null;
+    public List<Employee> getByActiveTrue() {
+        return employeeRepository.findByActiveTrue();
     }
 
     @Override
-    public List<Employee> findByActiveFalse() {
-        return null;
+    public List<Employee> getByActiveFalse() {
+        return employeeRepository.findByActiveFalse();
+    }
+
+    @Override
+    public List<Employee> getByEmpFirstNameIgnoreCase(String empFirstName) {
+        return employeeRepository.findByEmpFirstNameIgnoreCase(empFirstName);
     }
 }
